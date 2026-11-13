@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickPress — مرجع اختصارات ويندوز وأوفيس</title>
+<script>
+(function () {
+  var lang = 'ar';
+  try { lang = localStorage.getItem('qp_lang') || 'ar'; } catch (e) { }
+  if (lang !== 'ar' && lang !== 'en') lang = 'ar';
+  window.location.replace(lang === 'en' ? 'windows_en.html' : 'windows_ar.html');
+})();
+</script>
+<noscript><meta http-equiv="refresh" content="0; url=windows_ar.html"/></noscript>
+</head>
+<body style="background:#0b1326;color:#dae2fd;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0">
+<p>QuickPress — جارٍ فتح المرجع… إن لم يُفتح، <a href="windows_ar.html" style="color:#a3c9ff">اضغط هنا (العربية)</a> أو <a href="windows_en.html" style="color:#a3c9ff">here (English)</a>.</p>
+</body>
+</html>

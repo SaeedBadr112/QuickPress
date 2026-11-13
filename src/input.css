@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body { margin: 0; padding: 0; }
+  body { overscroll-behavior: none; }
+  ::-webkit-scrollbar { display: none; }
+  .keycap { border-radius: 0.25rem; }
+}
+
+/* Pages load fonts locally from assets/css/fonts.css (Cairo for Arabic, Inter for Latin). */
+
+@media print {
+  header, footer, .no-print, #qp-header, #qp-footer { display: none !important; }
+  main { padding-top: 0 !important; }
+  body { background: #fff !important; }
+  #qp-main, section, div { visibility: visible; }
+  .shortcut-card { break-inside: avoid; border: 1px solid #ddd; }
+  body[data-page="matrix"] .no-print { display: none !important; }
+  body[data-page="matrix"] #qp-matrix-table { display: table !important; width: 100%; }
+}

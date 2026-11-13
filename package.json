@@ -1,0 +1,61 @@
+{
+  "name": "quickpress",
+  "productName": "QuickPress",
+  "version": "1.0.0",
+  "private": true,
+  "description": "QuickPress - offline bilingual (Arabic/English) keyboard shortcuts reference for Windows, Alt codes and Microsoft Office",
+  "main": "main.js",
+  "author": "Saeed Badr <saeedbadr112@hotmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/SaeedBadr112/QuickPress",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win",
+    "dist:nsis": "electron-builder --win nsis",
+    "dist:portable": "electron-builder --win portable",
+    "build:css": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.css --minify"
+  },
+  "devDependencies": {
+    "@fontsource-variable/cairo": "^5.3.0",
+    "@fontsource-variable/inter": "^5.3.0",
+    "electron": "^45.0.0",
+    "electron-builder": "^26.0.0",
+    "tailwindcss": "^3.4.17"
+  },
+  "build": {
+    "appId": "com.saeedbadr.quickpress",
+    "productName": "QuickPress",
+    "copyright": "Copyright (c) 2026 Saeed Badr",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "titlebar.js",
+      "*.html",
+      "assets/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "assets/img/logo.ico",
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "QuickPress",
+      "artifactName": "QuickPress-Setup-${version}.${ext}",
+      "deleteAppDataOnUninstall": false
+    },
+    "portable": {
+      "artifactName": "QuickPress-Portable-${version}.${ext}"
+    }
+  }
+}
